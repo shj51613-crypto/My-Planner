@@ -86,25 +86,15 @@ textarea{
 .calendar-grid{
     display:grid;
     grid-template-columns:repeat(7,1fr);
-    gap:8px;
+    gap:6px;
 }
 
 .day{
     background:#faf8f5;
-    border-radius:12px;
-    min-height:110px;
+    border-radius:14px;
+    min-height:130px;
     overflow:hidden;
-}
-
-.date-area{
-    padding:6px;
-    border-bottom:1px solid #d9ccb9;
-    font-size:13px;
-}
-
-.schedule-area{
-    height:75px;
-    padding:4px;
+    border:1px solid #f0ece7;
 }
 
 .habit-tabs{
@@ -165,4 +155,29 @@ textarea{
 .bottom-nav button.active{
     color:#8c7f72;
     font-weight:700;
+}
+
+.date-area{
+    height:38px;
+    padding:6px 8px;
+    border-bottom:1px solid #f0ece7;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+}
+
+.date-number{
+    font-size:14px;
+    font-weight:600;
+}
+
+.lunar-date{
+    font-size:10px;
+    color:#9d9488;
+}
+
+.schedule-area{
+    height:90px;
+    padding:4px;
 }
