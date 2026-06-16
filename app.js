@@ -37,22 +37,24 @@ function createCalendar() {
 
     if (!calendarGrid) return;
 
-    for (let i = 1; i <= 35; i++) {
+    calendarGrid.innerHTML = "";
+
+    const totalDays = 42; // 6주 고정
+
+    for (let i = 1; i <= totalDays; i++) {
 
         const day = document.createElement("div");
         day.className = "day";
 
         day.innerHTML = `
             <div class="date-area">
-                ${i}
+                <div class="date-number">${i <= 30 ? i : ""}</div>
+                <div class="lunar-date">${i <= 30 ? "음력" : ""}</div>
             </div>
 
-            <div class="schedule-area">
-            </div>
+            <div class="schedule-area"></div>
         `;
 
         calendarGrid.appendChild(day);
-
     }
-
 }
