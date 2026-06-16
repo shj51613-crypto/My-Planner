@@ -1,1 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>All In One Planner</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<div id="app">
+
+    <header class="top-header">
+        <h1>All In One Planner</h1>
+    </header>
+
+    <!-- HOME -->
+    <main id="home-page" class="page active">
+
+        <section class="card">
+            <h2>오늘 할 일</h2>
+
+            <div class="todo-item">
+                <input type="checkbox">
+                <span>할 일을 추가해보세요</span>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>내일 할 일</h2>
+
+            <div class="todo-item">
+                <input type="checkbox">
+                <span>내일 할 일을 추가해보세요</span>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>아이디어</h2>
+
+            <textarea
+                placeholder="떠오른 생각을 자유롭게 기록하세요."
+            ></textarea>
+        </section>
+
+    </main>
+
+    <!-- CALENDAR -->
+    <main id="calendar-page" class="page">
+
+        <div class="calendar-header">
+            <button>◀</button>
+
+            <h2>2026년 6월</h2>
+
+            <button>▶</button>
+        </div>
+
+        <div class="weekdays">
+            <div>일</div>
+            <div>월</div>
+            <div>화</div>
+            <div>수</div>
+            <div>목</div>
+            <div>금</div>
+            <div>토</div>
+        </div>
+
+        <div class="calendar-grid">
+
+            <!-- 나중에 JS로 생성 -->
+        </div>
+
+    </main>
+
+    <!-- HABIT -->
+    <main id="habit-page" class="page">
+
+        <div class="habit-tabs">
+            <button class="active">오전</button>
+            <button>오후</button>
+            <button>저녁</button>
+        </div>
+
+        <section class="card">
+            <div class="todo-item">
+                <input type="checkbox">
+                <span>습관을 추가해보세요</span>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SETTINGS -->
+    <main id="settings-page" class="page">
+
+        <section class="card settings-card">
+
+            <div class="setting-row">
+                <span>다크모드</span>
+                <input type="checkbox">
+            </div>
+
+            <div class="setting-row">
+                <span>월요일 시작</span>
+                <input type="checkbox">
+            </div>
+
+            <div class="setting-row">
+                <span>공휴일 표시</span>
+                <input type="checkbox" checked>
+            </div>
+
+            <div class="setting-row">
+                <span>카테고리 관리</span>
+            </div>
+
+            <div class="setting-row">
+                <span>Google 로그인</span>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<nav class="bottom-nav">
+
+    <button data-page="home-page" class="active">
+        홈
+    </button>
+
+    <button data-page="calendar-page">
+        캘린더
+    </button>
+
+    <button data-page="habit-page">
+        습관
+    </button>
+
+    <button data-page="settings-page">
+        설정
+    </button>
+
+</nav>
+
+<script src="app.js"></script>
+
+</body>
+</html>
