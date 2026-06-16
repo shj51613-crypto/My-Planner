@@ -86,15 +86,19 @@ textarea{
 .calendar-grid{
     display:grid;
     grid-template-columns:repeat(7,1fr);
-    gap:6px;
+
+    border:1px solid #ebe5dd;
+    border-radius:18px;
+
+    overflow:hidden;
+    background:#faf8f5;
 }
 
 .day{
     background:#faf8f5;
-    border-radius:14px;
-    min-height:130px;
-    overflow:hidden;
-    border:1px solid #f0ece7;
+    min-height:90px;
+    border-right:1px solid #ebe5dd;
+    border-bottom:1px solid #ebe5dd;
 }
 
 .habit-tabs{
@@ -157,16 +161,6 @@ textarea{
     font-weight:700;
 }
 
-.date-area{
-    height:38px;
-    padding:6px 8px;
-    border-bottom:1px solid #f0ece7;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-}
-
 .date-number{
     font-size:14px;
     font-weight:600;
@@ -177,7 +171,26 @@ textarea{
     color:#9d9488;
 }
 
+.weekdays{
+    background:#faf8f5;
+}
+
+.weekdays div{
+    padding:10px 0;
+}
+
+.date-area{
+    height:26px;
+    padding:4px 6px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    border-bottom:1px solid #f3eee8;
+}
+
 .schedule-area{
-    height:90px;
-    padding:4px;
+    height:60px;
+    padding:2px 4px;
 }
