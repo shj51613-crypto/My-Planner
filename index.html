@@ -198,6 +198,65 @@
 
 </div>
 
+
+<div id="scheduleModal" class="schedule-modal">
+
+    <div class="schedule-box">
+
+        <h2>일정 추가</h2>
+
+        <input
+            type="text"
+            id="scheduleTitle"
+            placeholder="일정 제목"
+        >
+
+        <select id="scheduleCategory">
+
+            <option>개인일정</option>
+            <option>계획</option>
+            <option>가족일정</option>
+            <option>스포츠일정</option>
+
+        </select>
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="allDayCheck"
+            >
+
+            종일 일정
+
+        </label>
+
+        <input
+            type="time"
+            id="startTime"
+        >
+
+        <input
+            type="time"
+            id="endTime"
+        >
+
+        <div class="schedule-buttons">
+
+            <button id="saveSchedule">
+                저장
+            </button>
+
+            <button id="cancelSchedule">
+                취소
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+    
 <script src="app.js"></script>
     
 </body>
