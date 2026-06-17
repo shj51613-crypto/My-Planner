@@ -272,3 +272,21 @@ textarea{
 .dayview-content{
     padding:20px;
 }
+
+.time-row{
+    display:flex;
+    min-height:32px;
+    border-bottom:1px solid #f0ece7;
+}
+
+.time-label{
+    width:60px;
+    font-size:11px;
+    color:#b8aea2;
+    padding-top:6px;
+}
+
+.time-cell{
+    flex:1;
+    border-left:1px solid #f0ece7;
+}
