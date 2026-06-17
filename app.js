@@ -161,6 +161,8 @@ function openDayView(dayNumber){
     selectedDate.textContent =
         `${month}월 ${dayNumber}일`;
 
+    createTimeGrid();
+
     modal.classList.add("open");
 
 }
@@ -183,3 +185,40 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+function createTimeGrid(){
+
+    const timeGrid =
+        document.getElementById("timeGrid");
+
+    if(!timeGrid) return;
+
+    timeGrid.innerHTML = "";
+
+    for(let hour = 0; hour < 24; hour++){
+
+        for(let minute = 0; minute < 60; minute += 5){
+
+            const time =
+                `${String(hour).padStart(2,"0")}:${String(minute).padStart(2,"0")}`;
+
+            const row =
+                document.createElement("div");
+
+            row.className = "time-row";
+
+            row.innerHTML = `
+                <div class="time-label">
+                    ${time}
+                </div>
+
+                <div class="time-cell"></div>
+            `;
+
+            timeGrid.appendChild(row);
+
+        }
+
+    }
+
+}
