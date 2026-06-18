@@ -127,20 +127,36 @@ function renderCalendar() {
         }
 
         day.innerHTML = `
-            <div class="date-area">
-                <div class="date-number ${extraClass}">
-                    ${displayNumber}
-                </div>
-            </div>
+    <div class="date-area">
+        <div class="date-number ${extraClass}">
+            ${displayNumber}
+        </div>
+    </div>
 
-            <div class="schedule-area"></div>
-        `;
+    <div class="schedule-area"></div>
+`;
 
-day.addEventListener("click", () => {
+const dateArea =
+    day.querySelector(".date-area");
+
+dateArea.addEventListener("click", (e) => {
+
+    e.stopPropagation();
 
     openDayView(displayNumber);
 
-});        
+});
+
+const scheduleArea =
+    day.querySelector(".schedule-area");
+
+scheduleArea.addEventListener("click", (e) => {
+
+    e.stopPropagation();
+
+    openScheduleModal(displayNumber);
+
+});
         calendarGrid.appendChild(day);
 
     }
@@ -245,7 +261,33 @@ function createTimeGrid(){
         `;
 
         timeGrid.appendChild(row);
+    }
+}
+
+function openScheduleModal(dayNumber){
+
+    const modal =
+        document.getElementById("scheduleModal");
+
+    modal.classList.add("open");
+
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const cancelBtn =
+        document.getElementById("cancelSchedule");
+
+    if(cancelBtn){
+
+        cancelBtn.addEventListener("click", () => {
+
+            document
+                .getElementById("scheduleModal")
+                .classList.remove("open");
+
+        });
 
     }
 
-}
+});
