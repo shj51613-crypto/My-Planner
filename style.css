@@ -435,3 +435,55 @@ textarea{
 .calendar-schedule.스포츠일정{
     background:#d89bf3;
 }
+
+.calendar-schedule{
+    margin-bottom:2px;
+    padding:2px 6px;
+    border-radius:6px;
+
+    font-size:11px;
+
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+/* 종일 일정 */
+
+.calendar-schedule.allday.personal{
+    background:#e8d8c3;
+    color:#5b5147;
+}
+
+.calendar-schedule.allday.plan{
+    background:#d7e8ff;
+    color:#355c8a;
+}
+
+.calendar-schedule.allday.family{
+    background:#d8f0d8;
+    color:#3f6b3f;
+}
+
+.calendar-schedule.allday.sports{
+    background:#ffe3c7;
+    color:#9a5d21;
+}
+
+/* 시간 일정 */
+
+.calendar-schedule.time.personal{
+    color:#b98c5a;
+}
+
+.calendar-schedule.time.plan{
+    color:#4f8bd9;
+}
+
+.calendar-schedule.time.family{
+    color:#4ca85c;
+}
+
+.calendar-schedule.time.sports{
+    color:#e08a2f;
+}
