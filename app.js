@@ -6,6 +6,11 @@ let schedules =
     ) || [];
 let selectedDay = null;
 
+let dayMemos =
+    JSON.parse(
+        localStorage.getItem("dayMemos")
+    ) || {};
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const navButtons =
