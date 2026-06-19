@@ -277,7 +277,49 @@ function openDayView(dayNumber){
 
     createTimeGrid(dayNumber);
 
+    renderDaySchedules(dayNumber);
+
     modal.classList.add("open");
+
+}
+
+function renderDaySchedules(dayNumber){
+
+    const scheduleList =
+        document.getElementById("dayScheduleList");
+
+    if(!scheduleList) return;
+
+    scheduleList.innerHTML = "";
+
+    const month =
+        currentDate.getMonth() + 1;
+
+    const year =
+        currentDate.getFullYear();
+
+    const daySchedules =
+        schedules.filter(item =>
+            item.year === year &&
+            item.month === month &&
+            item.day === dayNumber
+        );
+
+    daySchedules.forEach(item => {
+
+        const div =
+            document.createElement("div");
+
+        div.className = "day-schedule-item";
+
+        div.textContent =
+            item.allDay
+                ? item.title
+                : `${item.startTime} ${item.title}`;
+
+        scheduleList.appendChild(div);
+
+    });
 
 }
 
