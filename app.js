@@ -71,6 +71,42 @@ document.addEventListener("DOMContentLoaded", () => {
         .getElementById("saveSchedule")
         .addEventListener("click", saveSchedule);
 
+    const trackerTab =
+    document.getElementById("trackerTab");
+
+const memoTab =
+    document.getElementById("memoTab");
+
+trackerTab.addEventListener("click", () => {
+
+    trackerTab.classList.add("active");
+    memoTab.classList.remove("active");
+
+    document
+        .getElementById("trackerContent")
+        .style.display = "block";
+
+    document
+        .getElementById("memoContent")
+        .style.display = "none";
+
+});
+
+memoTab.addEventListener("click", () => {
+
+    memoTab.classList.add("active");
+    trackerTab.classList.remove("active");
+
+    document
+        .getElementById("trackerContent")
+        .style.display = "none";
+
+    document
+        .getElementById("memoContent")
+        .style.display = "block";
+
+});
+    
     renderCalendar();
 
 });
