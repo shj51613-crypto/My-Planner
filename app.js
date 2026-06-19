@@ -369,6 +369,11 @@ function saveSchedule(){
 
     });
 
+    localStorage.setItem(
+    "schedules",
+    JSON.stringify(schedules)
+);
+    
     document
         .getElementById("scheduleModal")
         .classList.remove("open");
