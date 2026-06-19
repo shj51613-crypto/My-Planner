@@ -320,6 +320,16 @@ function openDayView(dayNumber){
 
     renderDaySchedules(dayNumber);
 
+    const memoKey =
+    `${currentDate.getFullYear()}-${
+        currentDate.getMonth() + 1
+    }-${dayNumber}`;
+
+    document
+        .getElementById("dayMemo")
+        .value =
+            dayMemos[memoKey] || "";
+    
     modal.classList.add("open");
 
 }
