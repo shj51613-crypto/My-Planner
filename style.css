@@ -471,3 +471,25 @@ textarea{
 .calendar-schedule.time.sports{
     color:#e08a2f;
 }
+
+#dayScheduleList{
+
+    margin-top:12px;
+
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+
+}
+
+.day-schedule-item{
+
+    padding:8px 10px;
+
+    border-radius:8px;
+
+    background:#f5f5f5;
+
+    font-size:13px;
+
+}
