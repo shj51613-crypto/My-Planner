@@ -111,6 +111,29 @@ memoTab.addEventListener("click", () => {
         .style.display = "block";
 
 });
+
+    document
+    .getElementById("dayMemo")
+    .addEventListener("input", () => {
+
+        if(selectedDay === null) return;
+
+        const memoKey =
+            `${currentDate.getFullYear()}-${
+                currentDate.getMonth() + 1
+            }-${selectedDay}`;
+
+        dayMemos[memoKey] =
+            document
+                .getElementById("dayMemo")
+                .value;
+
+        localStorage.setItem(
+            "dayMemos",
+            JSON.stringify(dayMemos)
+        );
+
+    });
     
     renderCalendar();
 
