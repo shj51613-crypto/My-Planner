@@ -213,6 +213,28 @@ schedule.textContent =
         ? item.title
         : `${item.startTime} ${item.title}`;
 
+schedule.addEventListener("click", (e) => {
+
+    e.stopPropagation();
+
+    if(confirm("이 일정을 삭제할까요?")){
+
+        const index =
+            schedules.indexOf(item);
+
+        schedules.splice(index, 1);
+
+        localStorage.setItem(
+            "schedules",
+            JSON.stringify(schedules)
+        );
+
+        renderCalendar();
+
+    }
+
+});
+                
                 scheduleArea.appendChild(schedule);
 
             });
