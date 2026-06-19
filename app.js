@@ -1,6 +1,9 @@
 let currentDate = new Date();
 
-let schedules = [];
+let schedules =
+    JSON.parse(
+        localStorage.getItem("schedules")
+    ) || [];
 let selectedDay = null;
 
 document.addEventListener("DOMContentLoaded", () => {
