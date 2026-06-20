@@ -316,6 +316,9 @@ schedule.addEventListener("click", (e) => {
 
     if(action === "edit"){
 
+        editingIndex =
+            schedules.indexOf(item);
+
         document
             .getElementById("scheduleTitle")
             .value = item.title;
