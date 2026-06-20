@@ -291,7 +291,12 @@ schedule.addEventListener("click", (e) => {
 
     e.stopPropagation();
 
-    if(confirm("이 일정을 삭제할까요?")){
+    const action =
+        prompt(
+            "수정하려면 'edit'\n삭제하려면 'delete' 입력"
+        );
+
+    if(action === "delete"){
 
         const index =
             schedules.indexOf(item);
