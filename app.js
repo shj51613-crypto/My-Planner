@@ -82,19 +82,16 @@ document.addEventListener("DOMContentLoaded", () => {
 .getElementById("closeActionModal")
 .addEventListener("click", () => {
 
-```
     document
         .getElementById("scheduleActionModal")
         .classList.remove("open");
 
 });
-```
 
 document
 .getElementById("editScheduleBtn")
 .addEventListener("click", () => {
 
-```
     const item =
         window.selectedScheduleItem;
 
@@ -133,13 +130,11 @@ document
         .classList.add("open");
 
 });
-```
 
 document
 .getElementById("deleteScheduleBtn")
 .addEventListener("click", () => {
 
-```
     const item =
         window.selectedScheduleItem;
 
@@ -169,7 +164,6 @@ document
     renderCalendar();
 
 });
-```
 
     
     const trackerTab =
