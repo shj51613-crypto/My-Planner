@@ -249,6 +249,16 @@ function renderCalendar(){
                 item.day === displayNumber
             );
 
+        daySchedules.sort((a, b) => {
+
+            if(a.allDay && !b.allDay) return -1;
+            if(!a.allDay && b.allDay) return 1;
+
+            return (a.startTime || "")
+                .localeCompare(b.startTime || "");
+
+});
+
         daySchedules
             .slice(0,2)
             .forEach(item => {
