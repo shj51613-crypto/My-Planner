@@ -8,6 +8,8 @@ let selectedDay = null;
 
 let editingIndex = null;
 
+let expandedDays = {};
+
 let dayMemos =
     JSON.parse(
         localStorage.getItem("dayMemos")
@@ -349,9 +351,14 @@ function renderCalendar(){
 
 });
 
-        daySchedules
-            .slice(0,2)
-            .forEach(item => {
+        const visibleSchedules =
+            expandedDays[
+                `${year}-${month + 1}-${displayNumber}`
+            ]
+                ? daySchedules
+                : daySchedules.slice(0,2);
+
+        visibleSchedules.forEach(item => {
 
                 const schedule =
                     document.createElement("div");
@@ -401,17 +408,28 @@ schedule.addEventListener("click", (e) => {
     more.className =
         "calendar-more";
 
+    const dayKey =
+        `${year}-${month + 1}-${displayNumber}`;
+
+    const expanded =
+        expandedDays[dayKey];
+
     more.textContent =
-        `+${daySchedules.length - 2}개 더`;
+        expanded
+            ? "접기"
+            : `+${daySchedules.length - 2}개 더`;
 
     more.addEventListener("click", (e) => {
 
-    e.stopPropagation();
+        e.stopPropagation();
 
-    openDayView(displayNumber);
+        expandedDays[dayKey] =
+            !expandedDays[dayKey];
 
-});
-            
+        renderCalendar();
+
+    });
+
     scheduleArea.appendChild(more);
 
 }
@@ -662,6 +680,3 @@ if(editingIndex !== null){
     renderCalendar();
 
 }
-
-alert("app.js 실행됨");
-    
