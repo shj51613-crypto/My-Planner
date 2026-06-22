@@ -400,37 +400,40 @@ schedule.addEventListener("click", (e) => {
 
             });
 
-        if(daySchedules.length > 2){
+        const dayKey =
+            `${year}-${month + 1}-${displayNumber}`;
+        
+        if(
+            daySchedules.length > 2 ||
+            expandedDays[dayKey]
+        ){
+            
+            const more =
+                document.createElement("div");
 
-    const more =
-        document.createElement("div");
+            more.className =
+                "calendar-more";
 
-    more.className =
-        "calendar-more";
+            const expanded =
+                expandedDays[dayKey];
 
-    const dayKey =
-        `${year}-${month + 1}-${displayNumber}`;
+            more.textContent =
+                expanded
+                    ? "접기"
+                    : `+${daySchedules.length - 2}개 더`;
 
-    const expanded =
-        expandedDays[dayKey];
+            more.addEventListener("click", (e) => {
 
-    more.textContent =
-        expanded
-            ? "접기"
-            : `+${daySchedules.length - 2}개 더`;
+                e.stopPropagation();
 
-    more.addEventListener("click", (e) => {
+                expandedDays[dayKey] =
+                    !expandedDays[dayKey];
 
-        e.stopPropagation();
+                renderCalendar();
 
-        expandedDays[dayKey] =
-            !expandedDays[dayKey];
+            });
 
-        renderCalendar();
-
-    });
-
-    scheduleArea.appendChild(more);
+            scheduleArea.appendChild(more);
 
 }
 
