@@ -122,6 +122,11 @@ document
         .getElementById("startTime")
         .value = item.startTime || "";
 
+    document
+        .getElementyById("repeatType")
+        .value =
+            item.repeatType || "none";
+
     selectedDay = item.day;
 
     document
