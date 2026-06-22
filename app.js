@@ -404,6 +404,14 @@ schedule.addEventListener("click", (e) => {
     more.textContent =
         `+${daySchedules.length - 2}개 더`;
 
+    more.addEventListener("click", (e) => {
+
+    e.stopPropagation();
+
+    openDayView(displayNumber);
+
+});
+            
     scheduleArea.appendChild(more);
 
 }
