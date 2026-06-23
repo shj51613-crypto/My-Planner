@@ -725,6 +725,31 @@ function openScheduleModal(dayNumber){
 
     selectedDay = dayNumber;
 
+    if(editingIndex === null){
+
+        document
+            .getElementById("repeatType")
+            .value = "none";
+
+        document
+            .getElementById("repeatEndDate")
+            .value = "";
+
+        document
+            .getElementById("weeklyRepeatBox")
+            .style.display = "none";
+
+        document
+            .querySelectorAll(
+                "#weeklyRepeatBox input"
+            )
+            .forEach(
+                checkbox =>
+                    checkbox.checked = false
+            );
+
+    }
+
     document
         .getElementById("scheduleModal")
         .classList.add("open");
