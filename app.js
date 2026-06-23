@@ -127,6 +127,11 @@ document
         .value =
             item.repeatType || "none";
 
+    document
+        .getElementById("repeatEndDate")
+        .value =
+            item.repeatEndDate || "";
+
     selectedDay = item.day;
 
     document
