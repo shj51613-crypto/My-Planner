@@ -16,6 +16,35 @@ let dayMemos =
         localStorage.getItem("dayMemos")
     ) || {};
 
+function getLunarText(year, month, day){
+
+    const lunar =
+        new KoreanLunarCalendar();
+
+    lunar.setSolarDate(
+        year,
+        month,
+        day
+    );
+
+    const lunarMonth =
+        Number(
+            lunar.lunarMonth
+        );
+
+    const lunarDay =
+        Number(
+            lunar.lunarDay
+        );
+
+    const prefix =
+        lunar.isIntercalation
+            ? "윤"
+            : "음";
+
+    return `${perfix}${lunarMonth}.${lunarDay}`;
+}    
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const navButtons =
