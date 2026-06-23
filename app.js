@@ -739,7 +739,7 @@ function saveSchedule(){
 
         repeatDays:
             Array.from(
-                document.queryDelectorAll(
+                document.querySelectorAll(
                     "#weeklyRepeatBox input:checked"
                 )
             ).map(
