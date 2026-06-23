@@ -232,6 +232,19 @@ memoTab.addEventListener("click", () => {
         );
 
     });
+
+    document
+        .getElementById("repeatType")
+        .addEventListener("change", (e) => {
+
+    document
+        .getElementById("weeklyRepeatBox")
+        .style.display =
+            e.target.value === "weekly"
+                ? "block"
+                : "none";
+
+        });
     
     renderCalendar();
 
@@ -371,10 +384,17 @@ function renderCalendar(){
                         return current > original;
 
                     case "weekly":
+
+                        const repeatDays =
+                            item.repeatDays || [
+                                original.getDay()
+                            ];
+
                         return (
                             current > original &&
-                            current.getDay() ===
-                            original.getDay()
+                            repeatDays.includes(
+                                current.getDay()
+                            )
                         );
 
                     case "monthly":
@@ -715,7 +735,17 @@ function saveSchedule(){
         repeatType:
             document
             .getElementById("repeatType")
-            .value
+            .value,
+
+        repeatDays:
+            Array.from(
+                document.queryDelectorAll(
+                    "#weeklyRepeatBox input:checked"
+                )
+            ).map(
+                checkbox =>
+                    Number(checkbox.value)
+            )
 
     };
 
