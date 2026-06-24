@@ -504,3 +504,11 @@ textarea{
     padding-left:4px;
 
 }
+
+.lunar-date{
+    font-size:9px;
+    color:#888;
+    margin-left:3px;
+    font-weight:400;
+    vertical-align:top;
+}
