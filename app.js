@@ -42,7 +42,7 @@ function getLunarText(year, month, day){
             ? "윤"
             : "음";
 
-    return `${perfix}${lunarMonth}.${lunarDay}`;
+    return `${prefix}${lunarMonth}.${lunarDay}`;
 }    
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -397,15 +397,32 @@ function renderCalendar(){
 
         }
 
+        const lunarText =
+            extraClass === ""
+                ? getLunarText(
+                    year,
+                    month + 1,
+                    displayNumber
+                )
+                : "";
+
         day.innerHTML = `
             <div class="date-area">
                 <div class="date-number ${extraClass}">
                     ${displayNumber}
+
+                    ${
+                        lunarText
+                        ? `<span class="lunar-date">
+                            ${lunarText}
+                           </span>`
+                        : ""
+                    }
                 </div>
             </div>
 
             <div class="schedule-area"></div>
-        `;
+`        ;
 
         const dateArea =
             day.querySelector(".date-area");
