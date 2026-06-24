@@ -507,8 +507,9 @@ textarea{
 
 .lunar-date{
     font-size:9px;
-    color:#888;
-    margin-left:3px;
+    color:#999;
+    margin-left:2px;
     font-weight:400;
     vertical-align:top;
+    letter-spacing:-0.2px;
 }
