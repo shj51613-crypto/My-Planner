@@ -474,8 +474,7 @@ function renderCalendar(){
 
         day.innerHTML = `
             <div class="date-area">
-                <div class="date-number ${extraClass}">
-                    ${holidayName ? "holiday" : ""}">
+                <div class="date-number ${extraClass} ${holidayName ? "holiday" : ""}">
                     ${displayNumber}
 
                     ${
@@ -489,7 +488,7 @@ function renderCalendar(){
             </div>
 
             <div class="schedule-area"></div>
-`        ;
+            `;
 
         const dateArea =
             day.querySelector(".date-area");
