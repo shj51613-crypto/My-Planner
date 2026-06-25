@@ -354,14 +354,58 @@ memoTab.addEventListener("click", () => {
         .getElementById("repeatType")
         .addEventListener("change", (e) => {
 
-    document
-        .getElementById("weeklyRepeatBox")
-        .style.display =
-            e.target.value === "weekly"
-                ? "block"
-                : "none";
+            document
+                .getElementById("weeklyRepeatBox")
+                .style.display =
+                    e.target.value === "weekly"
+                        ? "block"
+                        : "none";
 
         });
+
+    document
+        .getElementById(
+            "lunarScheduleCheck"
+        )
+        .addEventListener(
+            "change",
+            function(){
+
+                if(this.checked){
+
+                    document
+                        .getElementById(
+                            "repeatType"
+                        )
+                        .value =
+                            "yearly";
+
+                    document
+                        .getElementById(
+                            "repeatType"
+                        )
+                        .disabled =
+                            true;
+
+                    document
+                        .getElementById(
+                            "weeklyRepeatBox"
+                        )
+                        .style.display =
+                            "none";
+
+                }else{
+
+                    document
+                        .getElementById(
+                            "repeatType"
+                        )
+                        .disabled =
+                            false;
+                }
+
+            }
+        );
     
     renderCalendar();
 
