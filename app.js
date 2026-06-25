@@ -486,14 +486,6 @@ function renderCalendar(){
                         : ""
                     }
                 </div>
-
-                ${
-                    holidayName
-                    ? `<div class]"holiday-name">
-                        ${holidayName}
-                        </div>
-                    : ""
-                }
             </div>
 
             <div class="schedule-area"></div>
@@ -611,6 +603,22 @@ function renderCalendar(){
             ]
                 ? daySchedules
                 : daySchedules.slice(0,2);
+
+        if(holidayName){
+
+            const holiday =
+                document.createElement("div");
+
+            holiday.className =
+                "calendar-holiday";
+
+            holiday.textContent =
+                holidayName;
+
+            scheduleArea.appendChild(
+                holiday
+            );
+        }
 
         visibleSchedules.forEach(item => {
 
