@@ -55,6 +55,53 @@ function getLunarText(year, month, day){
     return `${prefix}${lunarMonth}.${lunarDay}`;
 }
 
+function getHolidayName(year, month, day){
+
+    const solarKey =
+        `${month}-${day}`;
+
+    const solarHolidays = {
+        "1-1":"신정",
+        "3-1":"삼일절",
+        "5-5":"어린이날",
+        "6-6":"현충일",
+        "8-15":"광복절",
+        "10-3":"개천절",
+        "10-9":"한글날",
+        "12-25":"성탄절"
+    };
+
+    if(solarHolidays[solarKey]){
+        return solarHolidays[solarKey];
+    }
+
+    const lunar =
+        new KoreanLunarCalendar();
+
+    lunar.setSolarDate(
+        year,
+        month,
+        day
+    );
+
+    const data =
+        lunar.getLunarCalendar();
+
+    const lunarKey =
+        `${Number(data.month)}-${Number(data.day)}`;
+
+    const lunarHolidays = {
+        "1-1":"설날",
+        "1-2":"설연휴",
+        "12-30":"설연휴",
+        "8-14":"추석연휴",
+        "8-15":"추석",
+        "8-16":"추석연휴"
+    };
+
+    return lunarHolidays[lunarKey] || "";
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const navButtons =
@@ -416,9 +463,19 @@ function renderCalendar(){
                 )
                 : "";
 
+        const holidayName =
+            extraClass === ""
+                ? getHolidayName(
+                    year,
+                    month + 1,
+                    displayNumber
+                )
+                : "";
+
         day.innerHTML = `
             <div class="date-area">
                 <div class="date-number ${extraClass}">
+                    ${holidayName ? "holiday" : ""}">
                     ${displayNumber}
 
                     ${
@@ -429,6 +486,14 @@ function renderCalendar(){
                         : ""
                     }
                 </div>
+
+                ${
+                    holidayName
+                    ? `<div class]"holiday-name">
+                        ${holidayName}
+                        </div>
+                    : ""
+                }
             </div>
 
             <div class="schedule-area"></div>
