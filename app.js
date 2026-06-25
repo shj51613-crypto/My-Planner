@@ -887,6 +887,10 @@ function openScheduleModal(dayNumber){
             .checked = false;
 
         document
+            .getElementById("repeatType")
+            .disabled = false;
+
+        document
             .getElementById("weeklyRepeatBox")
             .style.display = "none";
 
