@@ -958,9 +958,14 @@ function saveSchedule(){
         repeatEndDate:
             document
                 .getElementById("repeatEndDate")
-                .value
+                .value,
 
-    };
+        isLunar:
+            document
+                .getElementById("lunarScheduleCheck")
+                .checked
+
+        };
 
 if(editingIndex !== null){
 
