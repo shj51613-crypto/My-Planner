@@ -649,12 +649,75 @@ function renderCalendar(){
                         );
 
                     case "yearly":
+
+                        if(item.isLunar){
+
+                            const lunar =
+                                new KoreanLunarCalendar();
+
+                            let found = false;
+
+                            for(let day = 1; day <= 31; day++){
+
+                                try{
+
+                                    lunar.setSolarDate(
+                                        year,
+                                        month + 1,
+                                        day
+                                    );
+
+                                    const data =
+                                        lunar.getLunarCalendar();
+
+                                    const lunarMonth =
+                                        Number(data.month);
+
+                                    const lunarDay =
+                                        Number(data.day);
+
+                                    const isLeap =
+                                        data.intercalation;
+
+                                    if(
+                                        lunarMonth ===
+                                            item.lunarMonth &&
+                                        lunarDay ===
+                                            item.lunarDay &&
+                                        (
+                                            isLeap ===
+                                                item.isLeapMonth ||
+                                            (
+                                                item.isLeapMonth &&
+                                                !isLeap
+                                            )
+                                        )
+                                    ){
+
+                                        if(
+                                            displayNumber === day
+                                        ){
+                                            found = true;
+                                        }
+
+                                        break;
+                                    }
+
+                                }catch(e){}
+                            }
+
+                            return (
+                                current > original &&
+                                found
+                            );
+                        }
+
                         return (
                             current > original &&
                             current.getDate() ===
-                            original.getDate() &&
+                                original.getDate() &&
                             current.getMonth() ===
-                            original.getMonth()
+                                original.getMonth()
                         );
 
                     default:
