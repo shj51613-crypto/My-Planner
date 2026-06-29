@@ -698,9 +698,9 @@ function renderCalendar(){
                                             displayNumber === day
                                         ){
                                             found = true;
+                                            break;
                                         }
 
-                                        break;
                                     }
 
                                 }catch(e){}
