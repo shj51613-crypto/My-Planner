@@ -1141,6 +1141,13 @@ if(editingIndex !== null){
         scheduleData
     );
 
+    alert(
+        JSON.stringify(
+            scheduleData,
+            null,
+            2
+        )
+    );
 }
 
     localStorage.setItem(
