@@ -655,60 +655,40 @@ function renderCalendar(){
                             const lunar =
                                 new KoreanLunarCalendar();
 
-                            let found = false;
+                            try{
 
-                            for(let day = 1; day <= 31; day++){
+                                lunar.setLunarDate(
+                                    year,
+                                    item.lunarMonth,
+                                    item.lunarDay,
+                                    item.isLeapMonth
+                                );
 
-                                try{
+                            }catch(e){
 
-                                    lunar.setSolarDate(
+                                if(item.isLeapMonth){
+
+                                    lunar.setLunarDate(
                                         year,
-                                        month + 1,
-                                        day
+                                        item.lunarMonth,
+                                        item.lunarDay,
+                                        false
                                     );
 
-                                    const data =
-                                        lunar.getLunarCalendar();
-
-                                    const lunarMonth =
-                                        Number(data.month);
-
-                                    const lunarDay =
-                                        Number(data.day);
-
-                                    const isLeap =
-                                        data.intercalation;
-
-                                    if(
-                                        lunarMonth ===
-                                            item.lunarMonth &&
-                                        lunarDay ===
-                                            item.lunarDay &&
-                                        (
-                                            isLeap ===
-                                                item.isLeapMonth ||
-                                            (
-                                                item.isLeapMonth &&
-                                                !isLeap
-                                            )
-                                        )
-                                    ){
-
-                                        if(
-                                            displayNumber === day
-                                        ){
-                                            found = true;
-                                            break;
-                                        }
-
-                                    }
-
-                                }catch(e){}
+                                }else{
+                                    return false;
+                                }
                             }
+
+                            const solar =
+                                lunar.getSolarCalendar();
 
                             return (
                                 current > original &&
-                                found
+                                Number(solar.month)
+                                    === month + 1 &&
+                                Number(solar.day)
+                                    === displayNumber
                             );
                         }
 
