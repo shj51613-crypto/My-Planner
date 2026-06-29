@@ -72,7 +72,6 @@ function getLunarInfo(year, month, day){
     lunar.setSolarDate(year, month, day);
 
     return {
-
         month:
             Number(
                 lunar.lunarMonth
@@ -85,7 +84,6 @@ function getLunarInfo(year, month, day){
 
         isLeapMonth:
             lunar.isIntercalation
-
     };
 
 }
